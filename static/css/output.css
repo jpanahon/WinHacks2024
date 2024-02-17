@@ -610,14 +610,14 @@ video {
   border-color: rgb(234 88 12 / var(--tw-border-opacity));
 }
 
-.bg-\[\#f85b1a\] {
+.bg-\[\#1F4788\] {
   --tw-bg-opacity: 1;
-  background-color: rgb(248 91 26 / var(--tw-bg-opacity));
+  background-color: rgb(31 71 136 / var(--tw-bg-opacity));
 }
 
-.bg-\[\#ffd7c1\] {
+.bg-\[\#E74C3C\] {
   --tw-bg-opacity: 1;
-  background-color: rgb(255 215 193 / var(--tw-bg-opacity));
+  background-color: rgb(231 76 60 / var(--tw-bg-opacity));
 }
 
 .bg-blue-600 {
@@ -640,31 +640,6 @@ video {
   background-color: rgb(220 38 38 / var(--tw-bg-opacity));
 }
 
-.bg-\[\#e59982\] {
-  --tw-bg-opacity: 1;
-  background-color: rgb(229 153 130 / var(--tw-bg-opacity));
-}
-
-.bg-\[\#072083\] {
-  --tw-bg-opacity: 1;
-  background-color: rgb(7 32 131 / var(--tw-bg-opacity));
-}
-
-.bg-\[\#8a9294\] {
-  --tw-bg-opacity: 1;
-  background-color: rgb(138 146 148 / var(--tw-bg-opacity));
-}
-
-.bg-\[\#3498DB\] {
-  --tw-bg-opacity: 1;
-  background-color: rgb(52 152 219 / var(--tw-bg-opacity));
-}
-
-.bg-\[\#1F4788\] {
-  --tw-bg-opacity: 1;
-  background-color: rgb(31 71 136 / var(--tw-bg-opacity));
-}
-
 .p-2 {
   padding: 0.5rem;
 }
@@ -677,14 +652,18 @@ video {
   text-align: center;
 }
 
+.font-saiyan {
+  font-family: Saiyan Sans;
+}
+
 .text-3xl {
   font-size: 1.875rem;
   line-height: 2.25rem;
 }
 
-.text-4xl {
-  font-size: 2.25rem;
-  line-height: 2.5rem;
+.text-6xl {
+  font-size: 3.75rem;
+  line-height: 1;
 }
 
 .text-xl {
@@ -704,9 +683,9 @@ video {
   font-style: italic;
 }
 
-.text-orange-600 {
+.text-\[\#ffeb00\] {
   --tw-text-opacity: 1;
-  color: rgb(234 88 12 / var(--tw-text-opacity));
+  color: rgb(255 235 0 / var(--tw-text-opacity));
 }
 
 .text-red-600 {
@@ -719,11 +698,6 @@ video {
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
-.text-\[\#F1C40F\] {
-  --tw-text-opacity: 1;
-  color: rgb(241 196 15 / var(--tw-text-opacity));
-}
-
 .shadow {
   --tw-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
   --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);
@@ -733,4 +707,10 @@ video {
 .shadow-orange-600 {
   --tw-shadow-color: #ea580c;
   --tw-shadow: var(--tw-shadow-colored);
+}
+
+@font-face {
+  font-family: 'Saiyan Sans';
+
+  src: url('../fonts/Saiyan-Sans\ Left\ Oblique.ttf');
 }
