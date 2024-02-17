@@ -1,4 +1,6 @@
 from flask import Flask, render_template
+import dummy_dict
+import json
 
 app = Flask(__name__)
 
@@ -8,7 +10,9 @@ def index():
 
 @app.route("/shop/")
 def shop():
-    return render_template("shop.html")
+    data = dummy_dict.items
+    data = json.dumps(data)
+    return render_template("shop.html", items=data)
 
 @app.route("/pay/")
 def pay():
