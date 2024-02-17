@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="{{url_for('static',filename='css/output.css')}}" rel="stylesheet">
+    <title>Dragon-Ballers</title>
+</head>
+
+<body>
+    <header class="p-4 border-b-2 border-orange-600">
+        <h1 class="text-center text-4xl font-bold text-orange-600 m-auto">
+            <a href="/">Dragon Ballers Shop</a>
+        </h1>
+
+        <p class="text-center italic">Shop your heart out with our killer products and services.</p>
+
+        <nav class="text-center">
+            <ul class="list-none">
+                <li class="inline-block"><a href="/" class="mr-6 font-bold">Home</a></li>
+                <li class="inline-block"><a href="/checkout" class="mr-6 font-bold">Checkout</a></li>
+                <li class="inline-block"><a href="/budget" class="mr-6 font-bold">Budget Planning</a></li>
+                <li class="inline-block"><a href="/shop" class="mr-6 font-bold">Shopping Cart</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1 class="font-bold text-3xl text-center p-4">Checkout</h1>
+        <form class="shadow p-4 w-1/2 m-auto mt-4"> <br>
+
+            <table>
+                <tr>
+                    <th>Name</th>
+                    <th>Price</th>
+                </tr>
+                {% for item in items %}
+                <tr>
+                    <td>{{ item-name }}</td>
+                    <td>{{ item-price }}</td>
+                    <td>
+                        <a href="{{ url_for('update', id=item-name) }}">Update</a>
+                        <a href="{{ url_for('delete', id=item-name) }}">Delete</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
+
+            <p class="text-red-600">* Indicates that the question is required to be answered</p>
+            <label for="fname" class="font-semibold text-xl">First Name<span class="text-red-600">*</span>
+                <br></label>
+            <input type="text" name="fname" class="border-black border-2 p-2" required> <br> <br>
+            <label for="lname" class="font-semibold text-xl">Last Name<span class="text-red-600">*</span>
+                <br></label>
+            <input type="text" name="lname" class="border-black border-2 p-2" required> <br> <br>
+            <label for="ccnumber" class="font-semibold text-xl">Credit Card Number<span class="text-red-600">*</span>
+                <br></label>
+            <input type="text" name="ccnumber" class="border-black border-2 p-2" required> <br> <br>
+            <label for="ccv" class="font-semibold text-xl">CCV<span class="text-red-600">*</span>
+                <br></label>
+            <input type="text" name="ccv" class="border-black border-2 p-2" required> <br> <br>
+
+            <button class="bg-purple-600 text-white p-4 rounded-2xl" type="submit">Calculate</button>
+            <br>
+        </form>
+    </main>
+    <footer class="fixed bottom-0 w-full bg-gray-800 text-white p-4 text-center">
+        Copyright &copy; 2024 Dragon Ballers
+    </footer>
+</body>
+
+</html>

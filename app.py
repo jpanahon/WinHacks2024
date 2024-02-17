@@ -28,6 +28,11 @@ def filtered():
     # Handle the regular GET request
     return jsonify(items=filtered_data)
     # return render_template("shop.html", items=filtered_data)
+@app.route("/checkout")
+def checkout():
+    data = dummy_dict.items
+    data = json.dumps(data)
+    return render_template("checkout.html")
 
 
 @app.route("/pay/")
