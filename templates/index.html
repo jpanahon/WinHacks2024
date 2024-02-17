@@ -11,20 +11,41 @@
 </head>
 
 <body>
-    <header>
-        <h1 class="text-center text-4xl text-red-600 m-auto">Shopping Cart App</h1>
-        <nav>
-            <ul class="list-none flex">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="budget.html">Budget Planning</a></li>
-                <li><a href="shop.html">Shopping Cart</a></li>
+    <header class="p-4 border-b-2 border-orange-600">
+        <h1 class="text-center text-4xl font-bold text-orange-600 m-auto">Dragon Ballers Shop</h1>
+        <p class="text-center italic">Shop your heart out with our killer products and services.</p>
+
+        <nav class="text-center">
+            <ul class="list-none">
+                <li class="inline-block"><a href="index.html" class="mr-6 font-bold">Home</a></li>
+                <li class="inline-block"><a href=" budget.html" class="mr-6 font-bold">Budget Planning</a></li>
+                <li class="inline-block"><a href=" shop.html" class="mr-6 font-bold">Shopping Cart</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
-        Shop your heart out with our killer products and services.
+        <h1 class="font-bold text-3xl text-center p-4">Featured Items</h1>
+        <section class="m-auto w-1/2">
+            <figure class="inline-block p-4">
+                <img src="../static/images/harley.png" width="128px" height="128px" alt="Harlequin Costume" />
+                <figcaption>
+                    Harlequin Costume <br> <span class="font-bold">Price: $100 CAD</span>
+                </figcaption>
+            </figure>
+
+            <figure class="inline-block p-4">
+                <img src="../static/images/bmanjoker.png" alt="Batman and Joker" width="256px" height="256px" />
+                <figcaption>
+                    Batman v Joker Poster <br> <span class="font-bold">Price $30 CAD</span>
+                </figcaption>
+            </figure>
+        </section>
     </main>
+
+    <footer class="fixed bottom-0 w-full bg-gray-800 text-white p-4 text-center">
+        Copyright &copy; 2024 Dragon Ballers
+    </footer>
 
 </body>
 

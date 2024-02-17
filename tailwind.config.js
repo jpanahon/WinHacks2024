@@ -3,6 +3,7 @@ module.exports = {
     content: ["./templates/*.html"],
     theme: {
         extend: {},
+        darkMode: "class",
     },
     plugins: [],
 };
