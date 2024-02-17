@@ -7,16 +7,9 @@ def read():
                 data = json.load(outfile)
         
         return data
+        
+def register(username,password,budget) : 
 
-def readItems(x) :
-        with open('database.json','r') as outfile:
-                data = json.load(outfile)
-        
-        return data["StaticData"]["product_table"][x]
-        
-def register() : 
-        username = input ("Please create a unique username: ")
-        password = input("Please create a password: ")
 
         with open('database.json','r') as outfile:
                 data = json.load(outfile)
@@ -42,7 +35,6 @@ def register() :
                 ]     
                 data["StaticData"]["user_table"]+= newUser
 
-                budget=input("please create a budget (Example: 1000): ")
                 newData = [
                 {    
                                 "userid" : i,
@@ -59,13 +51,12 @@ def register() :
 
                 with open("database.json", "w") as outfile:
                         outfile.write(json_object)
-                return "account created"
+                return True #account created
         else :
-                return "username already taken"
+                return False #username already taken
         
-def login():
-        username = input ("Please input your username: ")
-        password = input("Please input your password: ")
+def login(username,password):
+
 
         with open('database.json','r') as outfile:
                 data = json.load(outfile)
@@ -94,9 +85,9 @@ def login():
 
                 with open("database.json", "w") as outfile:
                         outfile.write(json_object)
-                return "logged in"
+                return True #logged in
         else  :
-                return "incorect username or password"
+                return False #incorect username or password
 
 def cart (item,amount,section):
         with open('database.json','r') as outfile:
@@ -129,12 +120,12 @@ def cart (item,amount,section):
 
                 with open("database.json", "w") as outfile:
                         outfile.write(json_object)
-                return "item added"
+                return True #item added
         else :
-                return "out of budget"
+                return False #out of budget
 
                         
-def buy ():
+def buy (payment):
         with open('database.json','r') as outfile:
                 data = json.load(outfile)  
         hostname = socket.gethostname()
@@ -148,9 +139,7 @@ def buy ():
 
         budget = data["SessionData"]["shopping_session"][session]["budget"]
         cart = data["SessionData"]["shopping_session"][session]["cart_items"]
-        print(cart)
 
-        payment=input("Please input payment info: ")
         if (payment != None):
 
                 y = len(data["ProcessedData"]["order_details"])
@@ -176,9 +165,9 @@ def buy ():
 
                 with open("database.json", "w") as outfile:
                                 outfile.write(json_object)
-                return "items bought"
+                return True #items bought
         else :
-                return "order failed"        
+                return False #order failed       
 
 
 
