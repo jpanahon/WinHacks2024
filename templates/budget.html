@@ -11,53 +11,43 @@
 </head>
 
 <body>
-    <header class="p-4 border-b-2 border-orange-600">
-        <h1 class="text-center text-4xl font-bold text-orange-600 m-auto">
-            <a href="/">Dragon Ballers Shop</a>
-        </h1>
+    {% include './components/navbar.html' %}
+    <main>
+        <form class="shadow shadow-orange-600 p-4 w-1/2 m-auto mt-4 text-center">
+            <p class="text-red-600">* Indicates that the question is required to be answered</p>
+            <br>
+            <label for="budget" class="font-semibold text-xl">What is your budget?<span class="text-red-600">*</span>
+                <br></label>
+            <input type="number" name="budget" class="border-black border-2 p-2" required> <br> <br>
 
-        <p class="text-center italic">Shop your heart out with our killer products and services.</p>
+            <hr>
 
-        <nav class="text-center">
-            <ul class="list-none">
-                <li class="inline-block"><a href="/" class="mr-6 font-bold">Home</a></li>
-                <li class="inline-block"><a href="/budget" class="mr-6 font-bold">Budget Planning</a></li>
-                <li class="inline-block"><a href="/shop" class="mr-6 font-bold">Shopping Cart</a></li>
-            </ul>
-        </nav>
-    </header>
+            <div id="items">
+                <label for="item-name-1" class="font-semibold text-xl">Item #1 Name <br></label>
+                <input type="text" name="item-name-1" class="border-black border-2 p-2"> <br> <br>
 
-    <form class="shadow shadow-orange-600 p-4 w-1/2 m-auto mt-4 text-center">
-        <p class="text-red-600">* Indicates that the question is required to be answered</p>
-        <br>
-        <label for="budget" class="font-semibold text-xl">What is your budget?<span class="text-red-600">*</span>
-            <br></label>
-        <input type="number" name="budget" class="border-black border-2 p-2" required> <br> <br>
+                <label for="item-price-1" class="font-semibold text-xl">
+                    Item #1 Price<span class="text-red-600">*</span><br>
+                </label>
 
-        <hr>
+                <input type="number" name="item-price-1" class="border-black border-2 p-2" required>
+            </div>
+            <br> <br>
+            <button class="bg-blue-600 text-white p-4 rounded-2xl" type="button" onclick="addItem()">Add Item</button>
+            <button class="bg-red-600 text-white p-4 rounded-2xl" type="button" onclick="removeItem()">Remove
+                Item</button>
+            <br> <br>
+            <hr> <br>
+            <button class="bg-purple-600 text-white p-4 rounded-2xl" type="submit">Calculate</button>
+        </form>
 
-        <div id="items">
-            <label for="item-name-1" class="font-semibold text-xl">Item #1 Name <br></label>
-            <input type="text" name="item-name-1" class="border-black border-2 p-2"> <br> <br>
+        <section id="results" class="p-4 mt-8 shadow shadow-orange-600 w-1/2 m-auto">
+            <h1 class="text-center text-3xl">Results</h1>
+            <p class="result"></p>
+        </section>
+    </main>
 
-            <label for="item-price-1" class="font-semibold text-xl">
-                Item #1 Price<span class="text-red-600">*</span><br>
-            </label>
-
-            <input type="number" name="item-price-1" class="border-black border-2 p-2" required>
-        </div>
-        <br> <br>
-        <button class="bg-blue-600 text-white p-4 rounded-2xl" type="button" onclick="addItem()">Add Item</button>
-        <button class="bg-red-600 text-white p-4 rounded-2xl" type="button" onclick="removeItem()">Remove Item</button>
-        <br> <br>
-        <hr> <br>
-        <button class="bg-purple-600 text-white p-4 rounded-2xl" type="submit">Calculate</button>
-    </form>
-
-    <section id="results" class="p-4 mt-8 shadow shadow-orange-600 w-1/2 m-auto">
-        <h1 class="text-center text-3xl">Results</h1>
-        <p class="result"></p>
-    </section>
+    {% include './components/footer.html' %}
 </body>
 
 </html>
