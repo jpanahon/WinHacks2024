@@ -14,6 +14,11 @@ def shop():
     data = json.dumps(data)
     return render_template("shop.html", items=data)
 
+@app.route("/checkout")
+def checkout():
+    return render_template("checkout.html")
+
+
 @app.route("/pay/")
 def pay():
     return render_template("pay.html")
