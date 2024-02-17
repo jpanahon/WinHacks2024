@@ -13,33 +13,37 @@
     {% include './components/navbar.html' %}
     <main>
         <h1 class="font-bold text-3xl text-center p-4">Checkout</h1>
-        <div class="p-8">
-            <table class="shadow-lg bg-white table-auto items-center">
-                <thead>
-                    <tr>
-                        <th class="bg-blue-100 border text-left px-8 py-4">Name</th>
-                        <th class="bg-blue-100 border text-left px-8 py-4">Price</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Apples</td>
-                        <td>2.99</td>
-                        <td>
-                            <a>Update</a>
-                            <a>Delete</a>
-                        </td>
-                    </tr>
+        <div class="container flex justify-center mx-auto">
+            <div class="flex flex-col">
+                <div class="w-full">
+                    <table class="shadow-lg bg-white table-auto items-center text-left min-w-max">
+                        <thead>
+                            <tr>
+                                <th class="bg-blue-100 border text-left px-8 py-4">Name</th>
+                                <th class="bg-blue-100 border text-left px-8 py-4">Price</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white divide-y divide-gray-300">
+                            <tr>
+                                <td>Apples</td>
+                                <td>4.99</td>
+                                <td>
+                                    <a>Update</a>
+                                    <a>Delete</a>
+                                </td>
+                            </tr>
 
-                </tbody>
-                <tfoot>
-                    <tr class="font-semibold">
-                        <th scope="row" class="px-6 py-3 text-base">Total</th>
-                        <td class="px-6 py-3">Quantity</td>
-                        <td class="px-6 py-3">Total Cost</td>
-                    </tr>
-                </tfoot>
-            </table>
+                        </tbody>
+                        <tfoot>
+                            <tr class="font-semibold">
+                                <th scope="row" class="px-6 py-3 text-base">Total Cost</th>
+                                <td class="px-6 py-3">4.99</td>
+                                <td class="px-6 py-3">4.99</td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
         </div>
         <form class="shadow p-4 w-1/2 m-auto mt-4"> <br>
             <p class="text-red-600">* Indicates that the question is required to be answered</p>
