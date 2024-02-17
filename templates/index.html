@@ -10,23 +10,8 @@
     <!-- <link href="../static/dist/css/output.css" rel="stylesheet"> -->
 </head>
 
-<body>
-    <header class="p-4 border-b-2 border-orange-600">
-        <h1 class="text-center text-4xl font-bold text-orange-600 m-auto">
-            <a href="/">Dragon Ballers Shop</a>
-        </h1>
-
-        <p class="text-center italic">Shop your heart out with our killer products and services.</p>
-
-        <nav class="text-center">
-            <ul class="list-none">
-                <li class="inline-block"><a href="/" class="mr-6 font-bold">Home</a></li>
-                <li class="inline-block"><a href="/checkout" class="mr-6 font-bold">Checkout</a></li>
-                <li class="inline-block"><a href="/budget" class="mr-6 font-bold">Budget Planning</a></li>
-                <li class="inline-block"><a href="/shop" class="mr-6 font-bold">Shopping Cart</a></li>
-            </ul>
-        </nav>
-    </header>
+<body class="bg-[#ffd7c1]">
+    {% include './components/navbar.html' %}
 
     <main>
         <h1 class="font-bold text-3xl text-center p-4">Featured Items</h1>
@@ -47,10 +32,7 @@
         </section>
     </main>
 
-    <footer class="fixed bottom-0 w-full bg-gray-800 text-white p-4 text-center">
-        Copyright &copy; 2024 Dragon Ballers
-    </footer>
-
+    {% include './components/footer.html' %}
 </body>
 
 </html>

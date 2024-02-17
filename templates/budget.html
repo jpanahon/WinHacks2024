@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link href="{{url_for('static',filename='css/output.css')}}" rel="stylesheet">
-    <script src="{{url_for('static', filename='src/budget.js')}}"></script>
+    <script src="{{url_for('static', filename='script/budget.js')}}"></script>
     <title>Document</title>
 </head>
 
@@ -21,7 +21,6 @@
         <nav class="text-center">
             <ul class="list-none">
                 <li class="inline-block"><a href="/" class="mr-6 font-bold">Home</a></li>
-                <li class="inline-block"><a href="/checkout" class="mr-6 font-bold">Checkout</a></li>
                 <li class="inline-block"><a href="/budget" class="mr-6 font-bold">Budget Planning</a></li>
                 <li class="inline-block"><a href="/shop" class="mr-6 font-bold">Shopping Cart</a></li>
             </ul>
@@ -38,8 +37,8 @@
         <hr>
 
         <div id="items">
-            <label for="item-name" class="font-semibold text-xl">Item #1 Name <br></label>
-            <input type="text" name="item-name" class="border-black border-2 p-2"> <br> <br>
+            <label for="item-name-1" class="font-semibold text-xl">Item #1 Name <br></label>
+            <input type="text" name="item-name-1" class="border-black border-2 p-2"> <br> <br>
 
             <label for="item-price" class="font-semibold text-xl">Item #1 Price <br></label>
             <input type="number" name="item-price" class="border-black border-2 p-2"> <br> <br>
@@ -49,9 +48,6 @@
         <hr> <br>
         <button class="bg-purple-600 text-white p-4 rounded-2xl" type="submit">Calculate</button>
     </form>
-    <footer class="fixed bottom-0 w-full bg-gray-800 text-white p-4 text-center">
-        Copyright &copy; 2024 Dragon Ballers
-    </footer>
 </body>
 
 </html>
