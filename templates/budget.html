@@ -12,21 +12,6 @@
 
 <body>
     {% include './components/navbar.html' %}
-    <header class="p-4 border-b-2 border-orange-600">
-        <h1 class="text-center text-4xl font-bold text-orange-600 m-auto">
-            <a href="/">Dragon Ballers Shop</a>
-        </h1>
-
-        <p class="text-center italic">Shop your heart out with our killer products and services.</p>
-
-        <nav class="text-center">
-            <ul class="list-none">
-                <li class="inline-block"><a href="/" class="mr-6 font-bold">Home</a></li>
-                <li class="inline-block"><a href="/budget" class="mr-6 font-bold">Budget Planning</a></li>
-                <li class="inline-block"><a href="/shop" class="mr-6 font-bold">Shopping Cart</a></li>
-            </ul>
-        </nav>
-    </header>
 
     <form class="shadow p-4 w-1/2 m-auto mt-4">
         <p class="text-red-600">* Indicates that the question is required to be answered</p>
@@ -49,6 +34,7 @@
         <hr> <br>
         <button class="bg-purple-600 text-white p-4 rounded-2xl" type="submit">Calculate</button>
     </form>
+    {% include './components/footer.html' %}
 </body>
 
 </html>
