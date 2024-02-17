@@ -16,6 +16,8 @@ def shop():
 
 @app.route("/checkout")
 def checkout():
+    data = dummy_dict.items
+    data = json.dumps(data)
     return render_template("checkout.html")
 
 

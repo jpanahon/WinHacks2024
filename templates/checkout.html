@@ -28,25 +28,46 @@
     </header>
     <main>
         <h1 class="font-bold text-3xl text-center p-4">Checkout</h1>
-        <section class="m-auto w-1/2">
-            <figure class="inline-block p-4">
-                <img src="../static/images/harley.png" width="128px" height="128px" alt="Harlequin Costume" />
-                <figcaption>
-                    Harlequin Costume <br> <span class="font-bold">Price: $100 CAD</span>
-                </figcaption>
-            </figure>
+        <form class="shadow p-4 w-1/2 m-auto mt-4"> <br>
 
-            <figure class="inline-block p-4">
-                <img src="../static/images/bmanjoker.png" alt="Batman and Joker" width="256px" height="256px" />
-                <figcaption>
-                    Batman v Joker Poster <br> <span class="font-bold">Price $30 CAD</span>
-                </figcaption>
-            </figure>
-        </section>
-        <footer class="fixed bottom-0 w-full bg-gray-800 text-white p-4 text-center">
-            Copyright &copy; 2024 Dragon Ballers
-        </footer>
+            <table>
+                <tr>
+                    <th>Name</th>
+                    <th>Price</th>
+                </tr>
+                {% for item in items %}
+                <tr>
+                    <td>{{ item-name }}</td>
+                    <td>{{ item-price }}</td>
+                    <td>
+                        <a href="{{ url_for('update', id=item-name) }}">Update</a>
+                        <a href="{{ url_for('delete', id=item-name) }}">Delete</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
+
+            <p class="text-red-600">* Indicates that the question is required to be answered</p>
+            <label for="fname" class="font-semibold text-xl">First Name<span class="text-red-600">*</span>
+                <br></label>
+            <input type="text" name="fname" class="border-black border-2 p-2" required> <br> <br>
+            <label for="lname" class="font-semibold text-xl">Last Name<span class="text-red-600">*</span>
+                <br></label>
+            <input type="text" name="lname" class="border-black border-2 p-2" required> <br> <br>
+            <label for="ccnumber" class="font-semibold text-xl">Credit Card Number<span class="text-red-600">*</span>
+                <br></label>
+            <input type="text" name="ccnumber" class="border-black border-2 p-2" required> <br> <br>
+            <label for="ccv" class="font-semibold text-xl">CCV<span class="text-red-600">*</span>
+                <br></label>
+            <input type="text" name="ccv" class="border-black border-2 p-2" required> <br> <br>
+
+            <button class="bg-purple-600 text-white p-4 rounded-2xl" type="submit">Calculate</button>
+            <br>
+        </form>
     </main>
+    <footer class="fixed bottom-0 w-full bg-gray-800 text-white p-4 text-center">
+        Copyright &copy; 2024 Dragon Ballers
+    </footer>
 </body>
 
 </html>
