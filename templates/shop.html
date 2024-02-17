@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <title>Document</title>
 </head>
 <body>
@@ -20,33 +20,34 @@
             <div class="item">
                 <img src="" alt="">
                 <div class="items-desc">
-                    <h3>{{}}</h3>
-                    <p>{{}}</p>
-                    <p>{{}}</p>
-                    <p>{{}}</p>
+                    <h3>{{items}}</h3>
+                    <p>price</p>
+                    <p>desc</p>
+                    <p>quantiity</p>
                 </div>
             </div>
             <div class="item">
                 <img src="" alt="">
                 <div class="items-desc">
-                    <h3>{{}}</h3>
-                    <p>{{}}</p>
-                    <p>{{}}</p>
-                    <p>{{}}</p>
+                    <h3>item name</h3>
+                    <p>price</p>
+                    <p>desc</p>
+                    <p>quantiity</p>
                 </div>
             </div>
             <div class="item">
                 <img src="" alt="">
                 <div class="items-desc">
-                    <h3>{{}}</h3>
-                    <p>{{}}</p>
-                    <p>{{}}</p>
-                    <p>{{}}</p>
+                    <h3>{{name}}</h3>
+                    <p>price</p>
+                    <p>desc</p>
+                    <p>quantiity</p>
                 </div>
             </div>
         </div>
     </div>
     <div id="python-data" style="display: none;">{{ items|tojson|safe }}</div>
     <script src="../static/script/script.js"></script>
+
 </body>
 </html>
