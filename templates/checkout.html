@@ -13,44 +13,73 @@
     {% include './components/navbar.html' %}
     <main>
         <h1 class="font-bold text-3xl text-center p-4">Checkout</h1>
-        <form class="shadow p-4 w-1/2 m-auto mt-4"> <br>
+        <div class="p-8">
+            <table class="shadow-lg bg-white table-auto items-center">
+                <thead>
+                    <tr>
+                        <th class="bg-blue-100 border text-left px-8 py-4">Name</th>
+                        <th class="bg-blue-100 border text-left px-8 py-4">Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Apples</td>
+                        <td>2.99</td>
+                        <td>
+                            <a>Update</a>
+                            <a>Delete</a>
+                        </td>
+                    </tr>
 
-            <table>
-                <tr>
-                    <th>Name</th>
-                    <th>Price</th>
-                </tr>
-                {% for item in items %}
-                <tr>
-                    <td>{{ item-name }}</td>
-                    <td>{{ item-price }}</td>
-                    <td>
-                        <a href="{{ url_for('update', id=item-name) }}">Update</a>
-                        <a href="{{ url_for('delete', id=item-name) }}">Delete</a>
-                    </td>
-                </tr>
-                {% endfor %}
+                </tbody>
+                <tfoot>
+                    <tr class="font-semibold">
+                        <th scope="row" class="px-6 py-3 text-base">Total</th>
+                        <td class="px-6 py-3">Quantity</td>
+                        <td class="px-6 py-3">Total Cost</td>
+                    </tr>
+                </tfoot>
             </table>
-
+        </div>
+        <form class="shadow p-4 w-1/2 m-auto mt-4"> <br>
             <p class="text-red-600">* Indicates that the question is required to be answered</p>
-            <label for="fname" class="font-semibold text-xl">First Name<span class="text-red-600">*</span>
-                <br></label>
-            <input type="text" name="fname" class="border-black border-2 p-2" required> <br> <br>
-            <label for="lname" class="font-semibold text-xl">Last Name<span class="text-red-600">*</span>
-                <br></label>
-            <input type="text" name="lname" class="border-black border-2 p-2" required> <br> <br>
-            <label for="ccnumber" class="font-semibold text-xl">Credit Card Number<span class="text-red-600">*</span>
-                <br></label>
-            <input type="text" name="ccnumber" class="border-black border-2 p-2" required> <br> <br>
-            <label for="ccv" class="font-semibold text-xl">CCV<span class="text-red-600">*</span>
-                <br></label>
-            <input type="text" name="ccv" class="border-black border-2 p-2" required> <br> <br>
 
-            <button class="bg-purple-600 text-white p-4 rounded-2xl" type="submit">Calculate</button>
+            <label for="fname" class="block mb-2 font-semibold text-xl">First Name<span class="text-red-600">*</span>
+                <br></label>
+            <input type="text" name="fname" class="flex-grow w-1/2 border-black border-2 p-2" required> <br>
+
+            <label for="lname" class="block mb-2 font-semibold text-xl">Last Name<span class="text-red-600">*</span>
+                <br></label>
+            <input type="text" name="lname" class="flex-grow w-1/2 border-black border-2 p-2" required> <br>
+
+            <label for="Address" class="block mb-2 font-semibold text-xl">Address<span class="text-red-600">*</span>
+                <br></label>
+            <input type="text" name="Address" class="flex-grow w-1/2 border-black border-2 p-2" required> <br>
+            <label for="postal" class="block mb-2 font-semibold text-xl">Postal Code<span class="text-red-600">*</span>
+                <br></label>
+            <input type="text" name="postal" class="flex-grow w-1/2 border-black border-2 p-2" required> <br>
+            <label for="countries" class="block mb-2 font-semibold text-xl" required>Country<span
+                    class="text-red-600">*</span></label>
+            <select id="countries" class="block mb-2 font-semibold text-xl">
+                <option selected="US">United States</option>
+                <option value="CA">Canada</option>
+                <option value="FR">France</option>
+                <option value="DE">Germany</option>
+                <option value="IN">India</option>
+            </select>
+            <label for="ccnumber" class="block mb-2 font-semibold text-xl">Credit Card Number<span
+                    class="text-red-600">*</span>
+                <br></label>
+            <input type="text" name="ccnumber" class="flex-grow w-1/2 border-black border-2 p-2" required> <br>
+            <label for="cvv" class="block mb-2 font-semibold text-xl">CVV<span class="text-red-600">*</span>
+                <br></label>
+            <input type="text" name="cvv" class="flex-grow w-1/2 border-black border-2 p-2" required> <br> <br>
+
+            <button class="bg-purple-600 text-white p-4 rounded-2xl" type="submit">Place Order</button>
             <br>
         </form>
     </main>
-    <footer class="fixed bottom-0 w-full bg-gray-800 text-white p-4 text-center">
+    <footer class="bottom-0 w-full bg-gray-800 text-white p-4 text-center">
         Copyright &copy; 2024 Dragon Ballers
     </footer>
 </body>
