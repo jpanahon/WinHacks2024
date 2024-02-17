@@ -2,6 +2,8 @@
 let itemsNumber = 1;
 
 function addItem() {
+    itemsNumber++;
+
     let items = document.getElementById("items");
     let newItem = document.createElement("input");
 
@@ -17,7 +19,7 @@ function addItem() {
     document.createElement("br");
 
     itemLabel.setAttribute("for", "item-name");
-    itemLabel.innerHTML = `<br> <br>Item #${(itemsNumber += 1)} Name <br>`;
+    itemLabel.innerHTML = `<br> <br>Item #${itemsNumber} Name <br>`;
     itemLabel.classList.add("font-semibold");
     itemLabel.classList.add("text-xl");
 
@@ -26,7 +28,8 @@ function addItem() {
 
     let itemPrice = document.createElement("input");
     itemPrice.setAttribute("type", "number");
-    itemPrice.setAttribute("name", "item-price");
+    itemPrice.setAttribute("name", `item-price-${itemsNumber}`);
+    itemPrice.required = true;
 
     document.createElement("br");
 
@@ -37,8 +40,8 @@ function addItem() {
     let itemPriceTag = document.createElement("label");
     document.createElement("br");
 
-    itemPriceTag.setAttribute("for", "item-price");
-    itemPriceTag.innerHTML = `<br> <br>Item #${itemsNumber} Price <br>`;
+    itemPriceTag.setAttribute("for", `item-price-${itemsNumber}`);
+    itemPriceTag.innerHTML = `<br> <br>Item #${itemsNumber} Price<span class="text-red-600">*</span><br>`;
     itemPriceTag.classList.add("font-semibold");
     itemPriceTag.classList.add("text-xl");
 
@@ -49,7 +52,8 @@ function addItem() {
 }
 
 function removeItem() {
-    itemsNumber -= 1;
+    itemsNumber--;
+
     let itemList = document.getElementById("items");
     let items = itemList.getElementsByTagName("input");
     let labels = itemList.getElementsByTagName("label");
@@ -60,4 +64,8 @@ function removeItem() {
         itemList.removeChild(labels[labels.length - 1]);
         itemList.removeChild(labels[labels.length - 1]);
     }
+}
+
+function calculate() {
+    let items = document.getElementById("items");
 }

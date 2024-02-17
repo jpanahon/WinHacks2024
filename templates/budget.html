@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link href="{{url_for('static',filename='css/output.css')}}" rel="stylesheet">
-    <script src="{{url_for('static', filename='src/budget.js')}}"></script>
+    <script src="{{url_for('static', filename='script/budget.js')}}"></script>
     <title>Document</title>
 </head>
 
@@ -27,7 +27,7 @@
         </nav>
     </header>
 
-    <form class="shadow p-4 w-1/2 m-auto mt-4">
+    <form class="shadow shadow-orange-600 p-4 w-1/2 m-auto mt-4 text-center">
         <p class="text-red-600">* Indicates that the question is required to be answered</p>
         <br>
         <label for="budget" class="font-semibold text-xl">What is your budget?<span class="text-red-600">*</span>
@@ -37,11 +37,14 @@
         <hr>
 
         <div id="items">
-            <label for="item-name" class="font-semibold text-xl">Item #1 Name <br></label>
-            <input type="text" name="item-name" class="border-black border-2 p-2"> <br> <br>
+            <label for="item-name-1" class="font-semibold text-xl">Item #1 Name <br></label>
+            <input type="text" name="item-name-1" class="border-black border-2 p-2"> <br> <br>
 
-            <label for="item-price" class="font-semibold text-xl">Item #1 Price <br></label>
-            <input type="number" name="item-price" class="border-black border-2 p-2">
+            <label for="item-price-1" class="font-semibold text-xl">
+                Item #1 Price<span class="text-red-600">*</span><br>
+            </label>
+
+            <input type="number" name="item-price-1" class="border-black border-2 p-2" required>
         </div>
         <br> <br>
         <button class="bg-blue-600 text-white p-4 rounded-2xl" type="button" onclick="addItem()">Add Item</button>
@@ -50,6 +53,11 @@
         <hr> <br>
         <button class="bg-purple-600 text-white p-4 rounded-2xl" type="submit">Calculate</button>
     </form>
+
+    <section id="results" class="p-4 mt-8 shadow shadow-orange-600 w-1/2 m-auto">
+        <h1 class="text-center text-3xl">Results</h1>
+        <p class="result"></p>
+    </section>
 </body>
 
 </html>

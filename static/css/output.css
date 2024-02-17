@@ -589,6 +589,10 @@ video {
   margin-top: 1rem;
 }
 
+.mt-8 {
+  margin-top: 2rem;
+}
+
 .inline-block {
   display: inline-block;
 }
@@ -601,6 +605,10 @@ video {
   display: flex;
 }
 
+.hidden {
+  display: none;
+}
+
 .h-screen {
   height: 100vh;
 }
@@ -611,6 +619,11 @@ video {
 
 .w-full {
   width: 100%;
+}
+
+.w-fit {
+  width: -moz-fit-content;
+  width: fit-content;
 }
 
 .max-w-screen-xl {
@@ -809,6 +822,11 @@ video {
   --tw-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
   --tw-shadow-colored: 0 1px 2px 0 var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+.shadow-orange-600 {
+  --tw-shadow-color: #ea580c;
+  --tw-shadow: var(--tw-shadow-colored);
 }
 
 .hover\:underline:hover {
