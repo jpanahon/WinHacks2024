@@ -3,8 +3,8 @@
         "user_table": [
             {
                 "userid": 0,
-                "Name": "test",
-                "Password": "test",
+                "Name": "CayoC",
+                "Password": "Password",
                 "sessionid": 0
             }
         ],
@@ -93,19 +93,30 @@
     },
     "SessionData": {
         "shopping_session": [
-            {}
+            {
+                "userid": 0,
+                "sessioncookie": "CayoC Password",
+                "budget": 8201.249999999982,
+                "cart_items": [
+                    {
+                        "item": "Pants",
+                        "amount": 5,
+                        "price": "149.95"
+                    }
+                ]
+            }
         ]
     },
     "ProcessedData": {
         "order_details": [
-            {},
             {
-                "paymentinfo": "1234",
+                "paymentinfo": 124,
                 "userid": 0,
-                "cost": "19.95",
-                "items": "Oranges",
-                "amount": "5",
-                "orderid": 1
+                "cost": {
+                    "item": "Pants",
+                    "amount": 5,
+                    "price": "149.95"
+                }
             }
         ]
     }

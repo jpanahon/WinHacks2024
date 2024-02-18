@@ -88,28 +88,29 @@ def dlogin(username,password):
         else  :
                 return False #incorect username or password
 
-def dcart (item,amount,section,username,password):
+def dcart (item,amount,section,cookie):
         with open('database.json','r') as outfile:
-                data = json.load(outfile)  
-        cookie = encookie(username,password)
+                data = json.load(outfile)
 
         x = len(data["SessionData"]["shopping_session"])
+  
         while(x>0):
                 x-=1
-                if data["SessionData"]["shopping_session"][x]["sessioncookie"] == cookie:
+                if str(data["SessionData"]["shopping_session"][x]["sessioncookie"]) == str(cookie):
                         session = x
 
-        if (x!=0):
+
+        if (x!=-1):
                 price = "%.2f" % (data["StaticData"]["product_table"][section][int(item)]["price"]*int(amount))
                 budget = data["SessionData"]["shopping_session"][session]["budget"]
 
                 if (budget>float(price)):
                         name = data["StaticData"]["product_table"][section][int(item)]["name"]
-                        newItem = {
-                        "item" : name,
+                        newItem = [{
+                        "item" : name, 
                         "amount" : amount,
                         "price" : price
-                        }
+                        }]
 
                         budget-=float(price)
                         data["SessionData"]["shopping_session"][session]["cart_items"]+= newItem
@@ -123,19 +124,18 @@ def dcart (item,amount,section,username,password):
                 else :
                         return "out of budget"
         else:
-                return "Please relogin"
+                return "Please re login"
 
                         
-def dbuy (payment):
+def dbuy (payment,cookie):
         with open('database.json','r') as outfile:
                 data = json.load(outfile)  
-        hostname = socket.gethostname()
-        ip_address = socket.gethostbyname(hostname)
+
 
         x = len(data["SessionData"]["shopping_session"])
         while(x>0):
                 x-=1
-                if data["SessionData"]["shopping_session"][x]["sessionip"] == ip_address:
+                if str(data["SessionData"]["shopping_session"][x]["sessioncookie"]) == str(cookie):
                         session = x
 
         budget = data["SessionData"]["shopping_session"][session]["budget"]
@@ -144,21 +144,22 @@ def dbuy (payment):
         if (payment != None):
 
                 y = len(data["ProcessedData"]["order_details"])
-
-
-                newData = [
-                {
-                      "paymentinfo" : payment,
-                      "userid" : data["SessionData"]["shopping_session"][session]["userid"],
-                      "cost" : data["SessionData"]["shopping_session"][session]["cart_items"]["price"],
-                      "items" : data["SessionData"]["shopping_session"][session]["cart_items"]["item"],
-                      "amount" : data["SessionData"]["shopping_session"][session]["cart_items"]["amount"],
-                      "orderid" : y
-                }
-                ]
+                x=len(data["SessionData"]["shopping_session"][session]["cart_items"])
+                while(x>0):
+                        x-=1
+                        newData = [
+                        {
+                        "paymentinfo" : payment,
+                        "userid" : data["SessionData"]["shopping_session"][session]["userid"],
+                        "cost" : data["SessionData"]["shopping_session"][session]["cart_items"][x]["price"],
+                        "items" : data["SessionData"]["shopping_session"][session]["cart_items"][x]["item"],
+                        "amount" : data["SessionData"]["shopping_session"][session]["cart_items"][x]["amount"],
+                        "orderid" : y
+                        }
+                        ]
 
                 data["ProcessedData"]["order_details"] +=newData
-                data["SessionData"]["shopping_session"][session] = {}
+                data["SessionData"]["shopping_session"][session]["cart_items"] = []
 
                 
 
