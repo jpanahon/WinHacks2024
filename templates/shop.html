@@ -40,7 +40,7 @@
             <img src="{{url_for('static', filename='images/items/bananas.png')}}" alt={{ item.name }} width="128px"
                 height="128px">
             <p>
-                {{ item.name }} <br> ${{ item.price }} <br> {{ item.category.title().replace("-", " ") }} <br> {{
+                <b>{{ item.name }}</b> <br> ${{ item.price }} <br> {{ item.category.title().replace("-", " ") }} <br> {{
                 item.quantity }} Left!
             </p>
             <button class="p-4 bg-purple-600 text-white">Add to Cart</button>
