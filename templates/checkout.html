@@ -27,20 +27,17 @@
                         <tbody class="items-list bg-white divide-y divide-gray-300">
 
                             <tr class="items-desc">
-                                <td>{{name}}</td>
-                                <td>{{price}}</td>
-                                <td>
-                                    <a>Update</a>
-                                    <a>Delete</a>
-                                </td>
+                                {% for cart_item in cart %}
+                                <td>{{cart_item.name}}</td>
+                                <td>{{cart_item.price}}</td>
+                                {% endfor %}
                             </tr>
 
                         </tbody>
                         <tfoot>
                             <tr class="font-semibold">
                                 <th scope="row" class="px-6 py-3 text-base">Total Cost</th>
-                                <td class="px-6 py-3">4.99</td>
-                                <td class="px-6 py-3">4.99</td>
+                                <td class="px-6 py-3">0.00</td>
                             </tr>
                         </tfoot>
                     </table>

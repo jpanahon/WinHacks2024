@@ -14,12 +14,17 @@
     <!-- {% set items_dict = items|tojson|safe %} -->
     {% include './components/navbar.html' %}
 
-    <div class="w3-sidebar w3-bar-block w3-border-right" style="display:none" id="mySidebar">
+    <div id="sidebar" class="sidebar bg-gray-800 text-white p-4">
         <button onclick="w3_close()" class="w3-bar-item w3-large">Close &times;</button>
-        <li class="w3-bar-item">Expenses: $4.99</li>
-        <li class="w3-bar-item">Your Budget: $0.00</li>
+        <ul class="list-none">
+            <li class="mb-2">Expenses: $0.00</li>
+            <li class="mb-2">Your Budget: $0.00</li>
+        </ul>
     </div>
-    <button class="w3-button w3-blue w3-xlarge" onclick="w3_open()">☰</button>
+
+
+    <button class="bg-gray-800 text-white px-2 py-1 mb-4" onclick="w3_open()">☰</button>
+
     <nav class="shop-nav">
         <ul>
             <li><a class="groceries-link" href="/shop/category/groceries">Groceries</a></li>
@@ -72,12 +77,18 @@
     <script src="../static/script/script.js"></script>
     <script>
         function w3_open() {
-            document.getElementById("mySidebar").style.display = "block";
+            document.getElementById("sidebar").style.display = "block";
         }
 
         function w3_close() {
-            document.getElementById("mySidebar").style.display = "none";
+            document.getElementById("sidebar").style.display = "none";
         }
+
+        const toggleButton = document.getElementById('toggleSidebar');
+
+        toggleButton.addEventListener('click', () => {
+            sidebar.classList.toggle('hidden');
+        });
     </script>
     {% include './components/footer.html' %}
 </body>
