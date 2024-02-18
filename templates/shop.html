@@ -11,7 +11,7 @@
 </head>
 
 <body>
-    {% set items_dict = items|tojson|safe %}
+    <!-- {% set items_dict = items|tojson|safe %} -->
     {% include './components/navbar.html' %}
 
     <div id="sidebar" class="sidebar bg-gray-800 text-white p-4">
@@ -27,111 +27,28 @@
 
     <nav class="shop-nav">
         <ul>
-            <li><a class="groceries-link" href="">Groceries</a></li>
-            <li><a class="school-link" href="">School supplies</a></li>
-            <li><a class="devices-link" href="">Electronic devices</a></li>
-            <li><a class="clothes-link" href="">Clothes</a></li>
+            <li><a class="groceries-link" href="/shop/category/groceries">Groceries</a></li>
+            <li><a class="school-link" href="/shop/category/school-supplies">School supplies</a></li>
+            <li><a class="devices-link" href="/shop/category/electronic-devices">Electronic devices</a></li>
+            <li><a class="clothes-link" href="/shop/category/clothes">Clothes</a></li>
         </ul>
     </nav>
-    <div class="items-list">
-        <div class="row">
-            <div class="item">
-                <img src="" alt="">
-                <div class="items-desc">
-                    <h3>item name</h3>
-                    <p>price</p>
-                    <p>desc</p>
-                    <p>quantiity</p>
-                    <button class="button">Add to Cart</button>
-                </div>
-            </div>
-            <div class="item">
-                <img src="" alt="">
-                <div class="items-desc">
-                    <h3>item name</h3>
-                    <p>price</p>
-                    <p>desc</p>
-                    <p>quantiity</p>
-                    <button class="button">Add to Cart</button>
-                </div>
-            </div>
-            <div class="item">
-                <img src="" alt="">
-                <div class="items-desc">
-                    <h3>item name</h3>
-                    <p>price</p>
-                    <p>desc</p>
-                    <p>quantiity</p>
-                    <button class="button">Add to Cart</button>
-                </div>
-            </div>
+
+    <div class="items-list w-1/2 m-auto p-4">
+        {% for item in items['items'] %}
+        <div class="inline-block">
+            <img src="{{url_for('static', filename='images/items/bananas.png')}}" alt={{ item.name }} width="128px"
+                height="128px">
+            <p>
+                {{ item.name }} <br> ${{ item.price }} <br> {{ item.category.title().replace("-", " ") }} <br> {{
+                item.quantity }} Left!
+            </p>
+            <button class="p-4 bg-purple-600 text-white">Add to Cart</button>
         </div>
-        <div class="row">
-            <div class="item">
-                <img src="" alt="">
-                <div class="items-desc">
-                    <h3>item name</h3>
-                    <p>price</p>
-                    <p>desc</p>
-                    <p>quantiity</p>
-                    <button class="button">Add to Cart</button>
-                </div>
-            </div>
-            <div class="item">
-                <img src="" alt="">
-                <div class="items-desc">
-                    <h3>item name</h3>
-                    <p>price</p>
-                    <p>desc</p>
-                    <p>quantiity</p>
-                    <button class="button">Add to Cart</button>
-                </div>
-            </div>
-            <div class="item">
-                <img src="" alt="">
-                <div class="items-desc">
-                    <h3>item name</h3>
-                    <p>price</p>
-                    <p>desc</p>
-                    <p>quantiity</p>
-                    <button class="button">Add to Cart</button>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="item">
-                <img src="" alt="">
-                <div class="items-desc">
-                    <h3>item name</h3>
-                    <p>price</p>
-                    <p>desc</p>
-                    <p>quantiity</p>
-                    <button class="button">Add to Cart</button>
-                </div>
-            </div>
-            <div class="item">
-                <img src="" alt="">
-                <div class="items-desc">
-                    <h3>item name</h3>
-                    <p>price</p>
-                    <p>desc</p>
-                    <p>quantiity</p>
-                    <button class="button">Add to Cart</button>
-                </div>
-            </div>
-            <div class="item">
-                <img src="" alt="">
-                <div class="items-desc">
-                    <h3>item name</h3>
-                    <p>price</p>
-                    <p>desc</p>
-                    <p>quantiity</p>
-                    <button class="button">Add to Cart</button>
-                </div>
-            </div>
-        </div>
+        {% endfor %}
     </div>
-    <div id="python-data" style="display: none;">{{ items|tojson|safe }}</div>
+
+    <!-- <div id="python-data" style="display: none;">{{ items|tojson|safe }}</div>
     <script>
         var pythonData = JSON.parse(document.getElementById('python-data').textContent)
         const jsonData = JSON.parse(pythonData)
@@ -157,7 +74,7 @@
             divs[i].getElementsByTagName('p')[1].innerText = jsonData['clothes_items'][key]['desc']
             divs[i].getElementsByTagName('p')[2].innerText = jsonData['clothes_items'][key]['quantity']
         } 
-    </script>
+    </script> -->
     <script src="../static/script/script.js"></script>
     <script>
         function w3_open() {
@@ -174,6 +91,7 @@
             sidebar.classList.toggle('hidden');
         });
     </script>
+
     {% include './components/footer.html' %}
 </body>
 

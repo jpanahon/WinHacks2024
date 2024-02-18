@@ -4,7 +4,7 @@ module.exports = {
     theme: {
         extend: {
             fontFamily: {
-                saiyan: ["Saiyan Sans"],
+                poppins: ["Poppins"],
             },
         },
         darkMode: "class",
