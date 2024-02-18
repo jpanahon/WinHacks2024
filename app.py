@@ -1,5 +1,4 @@
 from flask import Flask, render_template, request, jsonify
-import dummy_dict
 import json
 import DataBase
 
@@ -11,9 +10,22 @@ def index():
 
 @app.route("/shop/", methods=['GET', 'POST'])
 def shop():
-    data = dummy_dict.items
-    data_json = json.dumps(data)
-    return render_template("shop.html", items = data_json)
+    with open('./items.json') as f:
+        data = json.load(f)
+    return render_template("shop.html", items=data)
+
+@app.route("/shop/category/<category_name>")
+def category(category_name):
+    with open('./items.json') as f:
+        data = json.load(f)
+          
+    categoryItems = { "items": []}
+
+    for item in data['items']:
+        if item['category'] == category_name:
+            categoryItems['items'].append(item)
+
+    return render_template("shop.html", items=categoryItems)
 
 @app.route("/filtered/", methods=['GET', 'POST'])
 def filtered():
@@ -25,8 +37,9 @@ def filtered():
     
 @app.route("/checkout", methods=["GET", "POST"])
 def checkout():
-    data = dummy_dict.items
-    data = json.dumps(data)
+    with open('./items.json') as f:
+        data = json.load(f)
+
     return render_template("checkout.html", items=data)
 
 

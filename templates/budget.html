@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link href="{{url_for('static',filename='css/output.css')}}" rel="stylesheet">
     <script src="{{url_for('static', filename='script/budget.js')}}"></script>
-    <title>Document</title>
+    <title>Budget Planner</title>
 </head>
 
 <body>
@@ -27,13 +27,16 @@
             <input type="text" name="item-name-1" class="border-black border-2 p-2"> <br> <br>
 
             <label for="item-price" class="font-semibold text-xl">Item #1 Price <br></label>
-            <input type="number" name="item-price" class="border-black border-2 p-2"> <br> <br>
+            <input type="number" name="item-price" class="border-black border-2 p-2">
         </div>
-        <button class="bg-blue-600 text-white p-4 rounded-2xl" type="button">Add Item</button>
-        <button class="bg-red-600 text-white p-4 rounded-2xl" type="button">Remove Item</button> <br> <br>
+        <br> <br>
+        <button class="bg-blue-600 text-white p-4 rounded-2xl" type="button" onclick="addItem()">Add Item</button>
+        <button class="bg-red-600 text-white p-4 rounded-2xl" type="button" onclick="removeItem()">Remove Item</button>
+        <br> <br>
         <hr> <br>
         <button class="bg-purple-600 text-white p-4 rounded-2xl" type="submit">Calculate</button>
     </form>
+
     {% include './components/footer.html' %}
 </body>
 
