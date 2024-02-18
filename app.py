@@ -9,8 +9,8 @@ with open('database.json', 'r') as file:
 order_details = data['ProcessedData']['order_details']
 shopping_cart = data['SessionData']['shopping_session']
 
-def calculate_total_price(cart):
-    return sum(shopping_cart['price'] * shopping_cart['quantity'] for shopping in cart)
+# def calculate_total_price(cart):
+#     return sum(shopping_cart['price'] * shopping_cart['quantity'] for shopping in cart)
 
 @app.route("/")
 def index():

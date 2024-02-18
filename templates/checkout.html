@@ -21,14 +21,15 @@
                             <tr>
                                 <th class="bg-blue-100 border text-left px-8 py-4">Name</th>
                                 <th class="bg-blue-100 border text-left px-8 py-4">Price</th>
-                                <th class="bg-blue-100 border text-left px-8 py-4"></th>
+                                <th class="bg-blue-100 border text-left px-8 py-4">Quantity</th>
                             </tr>
                         </thead>
                         <tbody class="items-list bg-white divide-y divide-gray-300">
                             {% for cart_item in shopping_items %}
                             <tr class="items-desc">
-                                <td>{{cart_item.name}}</td>
+                                <td>{{cart_item.item}}</td>
                                 <td>{{cart_item.price}}</td>
+                                <td>{{cart_item.amount}}</td>
                             </tr>
                             {% endfor %}
                         </tbody>
