@@ -5,6 +5,11 @@ import DataBase
 
 app = Flask(__name__)
 
+purchase_history = []
+
+def calculate_total_price(cart):
+    return sum(item['price'] * item['quantity'] for item in cart)
+
 @app.route("/")
 def index():
 	return render_template("index.html")
@@ -23,16 +28,19 @@ def filtered():
     return jsonify(items=filtered_data)
     # return render_template("shop.html", items=filtered_data)
     
-@app.route("/checkout", methods=["GET", "POST"])
+@app.route("/checkout")
 def checkout():
     data = dummy_dict.items
     data = json.dumps(data)
-    return render_template("checkout.html", items=data)
+    return render_template("checkout.html")
 
+# @app.route("/pay/")
+# def pay():
+#     return render_template("pay.html")
 
-@app.route("/pay/")
-def pay():
-    return render_template("pay.html")
+@app.route("/purchasehistory/")
+def history():
+    return render_template("purchasehistory.html")
 
 @app.route("/budget/")
 def budget():

@@ -27,8 +27,10 @@
                         <tbody class="items-list bg-white divide-y divide-gray-300">
 
                             <tr class="items-desc">
-                                <td>{{name}}</td>
-                                <td>{{price}}</td>
+                                {% for cart_item in cart %}
+                                <td>{{cart_item.name}}</td>
+                                <td>{{cart_item.price}}</td>
+                                {% endfor %}
                             </tr>
 
                         </tbody>

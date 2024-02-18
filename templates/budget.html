@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link href="{{url_for('static',filename='css/output.css')}}" rel="stylesheet">
-    <script src="{{url_for('static', filename='script/budget.js')}}"></script>
+    <script type="text/javascript" defer src="../static/script/budget.js"></script>
     <title>Document</title>
 </head>
 
@@ -18,7 +18,8 @@
         <br>
         <label for="budget" class="font-semibold text-xl">What is your budget?<span class="text-red-600">*</span>
             <br></label>
-        <input type="number" name="budget" class="border-black border-2 p-2" required> <br> <br>
+        <input type="number" min="0.00" max="10000.00" step="0.01" name="budget" class="border-black border-2 p-2"
+            required> <br> <br>
 
         <hr>
 
@@ -27,7 +28,8 @@
             <input type="text" name="item-name-1" class="border-black border-2 p-2"> <br> <br>
 
             <label for="item-price" class="font-semibold text-xl">Item #1 Price <br></label>
-            <input type="number" name="item-price" class="border-black border-2 p-2"> <br> <br>
+            <input type="number" min="0.00" max="10000.00" step="0.01" name="item-price"
+                class="border-black border-2 p-2"> <br> <br>
         </div>
         <button class="bg-blue-600 text-white p-4 rounded-2xl" type="button">Add Item</button>
         <button class="bg-red-600 text-white p-4 rounded-2xl" type="button">Remove Item</button> <br> <br>
