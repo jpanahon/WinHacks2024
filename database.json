@@ -97,13 +97,14 @@
                 "userid": 0,
                 "sessioncookie": "CayoC Password",
                 "budget": 9700.099999999999,
-                "cart_items": [
-                    {
-                        "item": "Pants",
-                        "amount": 5,
-                        "price": "149.95"
-                    }
-                ]
+                "item": "Pants",
+                "amount": 5,
+                "price": "149.95"
+            },
+            {
+                "item": "Jeans",
+                "amount": 3,
+                "price": "49.95"
             }
         ]
     },
