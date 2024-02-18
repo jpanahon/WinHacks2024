@@ -93,18 +93,7 @@
     },
     "SessionData": {
         "shopping_session": [
-            {
-                "userid": 0,
-                "sessioncookie": "CayoC Password",
-                "budget": 8201.249999999982,
-                "cart_items": [
-                    {
-                        "item": "Pants",
-                        "amount": 5,
-                        "price": "149.95"
-                    }
-                ]
-            }
+            {}
         ]
     },
     "ProcessedData": {
@@ -112,11 +101,10 @@
             {
                 "paymentinfo": 124,
                 "userid": 0,
-                "cost": {
-                    "item": "Pants",
-                    "amount": 5,
-                    "price": "149.95"
-                }
+                "cost": "19.95",
+                "items": "Oranges",
+                "amount": "5",
+                "orderid": 1
             }
         ]
     }

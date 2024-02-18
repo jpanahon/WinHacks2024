@@ -3,6 +3,6 @@
 @tailwind utilities;
 
 @font-face {
-    font-family: 'Saiyan Sans';
-    src: url('../fonts/Saiyan-Sans\ Left\ Oblique.ttf');
+    font-family: 'Poppins';
+    src: url('../fonts/Poppins-Bold.ttf');
 }

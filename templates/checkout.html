@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link href="{{url_for('static',filename='css/output.css')}}" rel="stylesheet">
-    <title>Dragon-Ballers</title>
+    <title>Checkout</title>
 </head>
 
 <body>
@@ -25,20 +25,15 @@
                             </tr>
                         </thead>
                         <tbody class="items-list bg-white divide-y divide-gray-300">
-
+                            {% for cart_item in shopping_items %}
                             <tr class="items-desc">
-                                {% for cart_item in cart %}
                                 <td>{{cart_item.name}}</td>
                                 <td>{{cart_item.price}}</td>
-                                {% endfor %}
-                            </tr>
 
+                            </tr>
+                            {% endfor %}
                         </tbody>
                         <tfoot>
-                            <tr class="font-semibold">
-                                <th scope="row" class="px-6 py-3 text-base">Total Cost</th>
-                                <td class="px-6 py-3">0.00</td>
-                            </tr>
                         </tfoot>
                     </table>
                 </div>

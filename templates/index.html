@@ -5,30 +5,65 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WinHacks 2024</title>
+    <title>Dragon Ballers Store</title>
     <link href="{{url_for('static',filename='css/output.css')}}" rel="stylesheet">
-    <!-- <link href="../static/dist/css/output.css" rel="stylesheet"> -->
+    <link rel="icon" type="image/x-con" href="{{ url_for('static',filename='images/logo.png') }}">
 </head>
 
-<body class="bg-[#1F4788] font-saiyan">
+<body class="bg-[#e7e5e8] font-poppins">
     {% include './components/navbar.html' %}
 
     <main>
         <h1 class="font-bold text-3xl text-center p-4">Featured Items</h1>
-        <section class="m-auto w-1/2">
-            <figure class="inline-block p-4">
-                <img src="../static/images/harley.png" width="128px" height="128px" alt="Harlequin Costume" />
-                <figcaption>
-                    Harlequin Costume <br> <span class="font-bold">Price: $100 CAD</span>
-                </figcaption>
-            </figure>
-
-            <figure class="inline-block p-4">
-                <img src="../static/images/bmanjoker.png" alt="Batman and Joker" width="256px" height="256px" />
-                <figcaption>
-                    Batman v Joker Poster <br> <span class="font-bold">Price $30 CAD</span>
-                </figcaption>
-            </figure>
+        <section class="m-auto w-1/2 mb-4">
+            <div class="inline-block">
+                <img src="{{url_for('static', filename='images/items/bananas.png')}}" alt="bananas" width="128px"
+                    height="128px">
+                <p>
+                    Bananas <br> $1.99 <br> Groceries <br> 55 Left!
+                </p>
+                <button class="p-4 bg-purple-600 text-white">Add to Cart</button>
+            </div>
+            <div class="inline-block">
+                <img src="{{url_for('static', filename='images/items/bananas.png')}}" alt="bananas" width="128px"
+                    height="128px">
+                <p>
+                    Bananas <br> $2.99 <br> Groceries <br> 50 Left!
+                </p>
+                <button class="p-4 bg-purple-600 text-white">Add to Cart</button>
+            </div>
+            <div class="inline-block">
+                <img src="{{url_for('static', filename='images/items/bananas.png')}}" alt="bananas" width="128px"
+                    height="128px">
+                <p>
+                    Bananas <br> $3.99 <br> Groceries <br> 45 Left!
+                </p>
+                <button class="p-4 bg-purple-600 text-white">Add to Cart</button>
+            </div>
+            <div class="inline-block">
+                <img src="{{url_for('static', filename='images/items/bananas.png')}}" alt="bananas" width="128px"
+                    height="128px">
+                <p>
+                    Bananas <br> $4.99 <br> Groceries <br> 40 Left!
+                </p>
+                <button class="p-4 bg-purple-600 text-white">Add to Cart</button>
+            </div>
+            <div class="inline-block">
+                <img src="{{url_for('static', filename='images/items/bananas.png')}}" alt="bananas" width="128px"
+                    height="128px">
+                <p>
+                    Bananas <br> $5.99 <br> Groceries <br> 35 Left!
+                </p>
+                <button class="p-4 bg-purple-600 text-white">Add to Cart</button>
+            </div>
+            <div class="inline-block">
+                <img src="{{url_for('static', filename='images/dragonball.jpg')}}" alt="dragon ball" width="128px"
+                    height="128px">
+                <p>
+                    Dragon Ball <br> $9000.01 <br> Groceries <br> 1 Left!
+                </p>
+                <button class="p-4 bg-purple-600 text-white">Add to Cart</button>
+            </div>
         </section>
     </main>
 

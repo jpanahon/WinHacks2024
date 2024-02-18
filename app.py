@@ -1,14 +1,16 @@
 from flask import Flask, render_template, request, jsonify, make_response
-import dummy_dict
 import json
 from DataBase import *
 
 app = Flask(__name__)
 
-purchase_history = []
+with open('database.json', 'r') as file:
+    data = json.load(file)
+order_details = data['ProcessedData']['order_details']
+shopping_cart = data['SessionData']['shopping_session']
 
 def calculate_total_price(cart):
-    return sum(item['price'] * item['quantity'] for item in cart)
+    return sum(shopping_cart['price'] * shopping_cart['quantity'] for shopping in cart)
 
 @app.route("/")
 def index():
@@ -16,9 +18,22 @@ def index():
 
 @app.route("/shop/", methods=['GET', 'POST'])
 def shop():
-    data = dummy_dict.items
-    data_json = json.dumps(data)
-    return render_template("shop.html", items = data_json)
+    with open('./items.json') as f:
+        data = json.load(f)
+    return render_template("shop.html", items=data)
+
+@app.route("/shop/category/<category_name>")
+def category(category_name):
+    with open('./items.json') as f:
+        data = json.load(f)
+          
+    categoryItems = { "items": []}
+
+    for item in data['items']:
+        if item['category'] == category_name:
+            categoryItems['items'].append(item)
+
+    return render_template("shop.html", items=categoryItems)
 
 @app.route("/filtered/", methods=['GET', 'POST'])
 def filtered():
@@ -30,9 +45,10 @@ def filtered():
     
 @app.route("/checkout")
 def checkout():
-    data = dummy_dict.items
-    data = json.dumps(data)
-    return render_template("checkout.html")
+    with open('./items.json') as f:
+        data = json.load(f)
+
+    return render_template("checkout.html", shopping_items=shopping_cart)
 
 # @app.route("/pay/")
 # def pay():
@@ -40,7 +56,7 @@ def checkout():
 
 @app.route("/purchasehistory/")
 def history():
-    return render_template("purchasehistory.html")
+    return render_template("purchasehistory.html", order_details=order_details)
 
 @app.route("/budget/")
 def budget():
@@ -97,7 +113,8 @@ def getcookie():
    cookie = request.cookies.get('userCookie')
    info = decookie(cookie)
 
-   return make_response(render_template('readcookie.html', name=info[0]))   
+   return make_response(render_template('readcookie.html', name=info[0]))
+
 
 if __name__ == '__main__':
 	app.run(debug=True)
