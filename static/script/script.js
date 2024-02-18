@@ -59,6 +59,7 @@ $(document).ready(() => {
         // Implement your logic to update the HTML content
         // For example, you might update a specific element with the filtered data
         const divs = document.getElementsByClassName('items-desc')
+        const itemBoxes = document.getElementsByClassName('item')
 
         for (let i = 0; i < 3; i++) {
             let key = 'item' + (i+1)
@@ -69,6 +70,7 @@ $(document).ready(() => {
         }
 
         for (let i = 3; i < 9; i++) {
+            itemBoxes[i].style.display = 'none'
             divs[i].style.display = 'none'
         }
     }

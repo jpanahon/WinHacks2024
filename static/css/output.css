@@ -881,3 +881,78 @@ video {
 
   src: url('../fonts/Saiyan-Sans\ Left\ Oblique.ttf');
 }
+
+.shop-nav {
+  margin-top: 20px; /* Add some space at the top */
+}
+
+.shop-nav ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: space-around; /* Add space between items */
+}
+
+.shop-nav li {
+  margin: 0;
+}
+
+.shop-nav a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  font-size: 1.2rem;
+  transition: color 0.3s ease; /* Smooth color transition on hover */
+}
+
+.shop-nav a:hover {
+  color: #3498db;
+}
+
+.items-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 60px;
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+}
+
+.item {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 60px;
+}
+
+.item img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+.items-desc h3 {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.items-desc p {
+  color: #555;
+  margin-bottom: 5px;
+}
+
+.button {
+  background-color: #3498db;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #2073af;
+}
