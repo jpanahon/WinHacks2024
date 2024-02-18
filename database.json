@@ -1,0 +1,112 @@
+{
+    "StaticData": {
+        "user_table": [
+            {
+                "userid": 0,
+                "Name": "test",
+                "Password": "test",
+                "sessionid": 0
+            }
+        ],
+        "product_table": {
+            "Groceries": [
+                {
+                    "name": "Apples",
+                    "price": 4.99,
+                    "quantity": 1,
+                    "desc": "this is an apple"
+                },
+                {
+                    "name": "Oranges",
+                    "price": 3.99,
+                    "quantity": 1,
+                    "desc": "this is an orange"
+                },
+                {
+                    "name": "Peaches",
+                    "price": 5.99,
+                    "quantity": 1,
+                    "desc": "this is a peach"
+                }
+            ],
+            "Electronics": [
+                {
+                    "name": "Laptop",
+                    "price": 499.99,
+                    "quantity": 1,
+                    "desc": "this is a laptop"
+                },
+                {
+                    "name": "Headphones",
+                    "price": 53.99,
+                    "quantity": 1,
+                    "desc": "these are headphones"
+                },
+                {
+                    "name": "Phone",
+                    "price": 399.99,
+                    "quantity": 1,
+                    "desc": "this is a phone"
+                }
+            ],
+            "clothes_items": [
+                {
+                    "name": "Shirt",
+                    "price": 19.99,
+                    "quantity": 1,
+                    "desc": "this is a shirt"
+                },
+                {
+                    "name": "Pants",
+                    "price": 29.99,
+                    "quantity": 1,
+                    "desc": "these are pants"
+                },
+                {
+                    "name": "Hoodie",
+                    "price": 39.99,
+                    "quantity": 1,
+                    "desc": "this is a hoodie"
+                }
+            ],
+            "school_items": [
+                {
+                    "name": "Pencils",
+                    "price": 9.99,
+                    "quantity": 1,
+                    "desc": "these are pencils"
+                },
+                {
+                    "name": "Pens",
+                    "price": 7.99,
+                    "quantity": 1,
+                    "desc": "these are pens"
+                },
+                {
+                    "name": "Calculator",
+                    "price": 19.99,
+                    "quantity": 1,
+                    "desc": "this is a calculator"
+                }
+            ]
+        }
+    },
+    "SessionData": {
+        "shopping_session": [
+            {}
+        ]
+    },
+    "ProcessedData": {
+        "order_details": [
+            {},
+            {
+                "paymentinfo": "1234",
+                "userid": 0,
+                "cost": "19.95",
+                "items": "Oranges",
+                "amount": "5",
+                "orderid": 1
+            }
+        ]
+    }
+}
