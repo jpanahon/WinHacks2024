@@ -4,14 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link href="{{url_for('static',filename='css/output.css')}}" rel="stylesheet">
-    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Shop Items</title>
 </head>
 
 <body>
+    {% set items_dict = items|tojson|safe %}
     {% include './components/navbar.html' %}
-    <nav>
+    <nav class="shop-nav">
         <ul>
             <li><a class="groceries-link" href="">Groceries</a></li>
             <li><a class="school-link" href="">School supplies</a></li>
@@ -24,7 +25,7 @@
             <div class="item">
                 <img src="" alt="">
                 <div class="items-desc">
-                    <h3>{{items}}</h3>
+                    <h3>item name</h3>
                     <p>price</p>
                     <p>desc</p>
                     <p>quantiity</p>
@@ -42,7 +43,65 @@
             <div class="item">
                 <img src="" alt="">
                 <div class="items-desc">
-                    <h3>{{name}}</h3>
+                    <h3>item name</h3>
+                    <p>price</p>
+                    <p>desc</p>
+                    <p>quantiity</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="item">
+                <img src="" alt="">
+                <div class="items-desc">
+                    <h3>item name</h3>
+                    <p>price</p>
+                    <p>desc</p>
+                    <p>quantiity</p>
+                </div>
+            </div>
+            <div class="item">
+                <img src="" alt="">
+                <div class="items-desc">
+                    <h3>item name</h3>
+                    <p>price</p>
+                    <p>desc</p>
+                    <p>quantiity</p>
+                </div>
+            </div>
+            <div class="item">
+                <img src="" alt="">
+                <div class="items-desc">
+                    <h3>item name</h3>
+                    <p>price</p>
+                    <p>desc</p>
+                    <p>quantiity</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="item">
+                <img src="" alt="">
+                <div class="items-desc">
+                    <h3>item name</h3>
+                    <p>price</p>
+                    <p>desc</p>
+                    <p>quantiity</p>
+                </div>
+            </div>
+            <div class="item">
+                <img src="" alt="">
+                <div class="items-desc">
+                    <h3>item name</h3>
+                    <p>price</p>
+                    <p>desc</p>
+                    <p>quantiity</p>
+                </div>
+            </div>
+            <div class="item">
+                <img src="" alt="">
+                <div class="items-desc">
+                    <h3>item name</h3>
                     <p>price</p>
                     <p>desc</p>
                     <p>quantiity</p>
@@ -51,6 +110,32 @@
         </div>
     </div>
     <div id="python-data" style="display: none;">{{ items|tojson|safe }}</div>
+    <script>
+        var pythonData = JSON.parse(document.getElementById('python-data').textContent) 
+        const jsonData = JSON.parse(pythonData)   
+        const divs = document.getElementsByClassName('items-desc')
+        for (let i = 0; i < 3; i++) {
+            let key = 'item' + (i+1)
+            divs[i].getElementsByTagName('h3')[0].innerText = jsonData['grocery_items'][key]['name']
+            divs[i].getElementsByTagName('p')[0].innerText = jsonData['grocery_items'][key]['price']
+            divs[i].getElementsByTagName('p')[1].innerText = jsonData['grocery_items'][key]['desc']
+            divs[i].getElementsByTagName('p')[2].innerText = jsonData['grocery_items'][key]['quantity']
+        } 
+        for (let i = 3; i < 6; i++) {
+            let key = 'item' + ((i-3)+1)
+            divs[i].getElementsByTagName('h3')[0].innerText = jsonData['electronic_items'][key]['name']
+            divs[i].getElementsByTagName('p')[0].innerText = jsonData['electronic_items'][key]['price']
+            divs[i].getElementsByTagName('p')[1].innerText = jsonData['electronic_items'][key]['desc']
+            divs[i].getElementsByTagName('p')[2].innerText = jsonData['electronic_items'][key]['quantity']
+        } 
+        for (let i = 6; i < 9; i++) {
+            let key = 'item' + ((i-6)+1)
+            divs[i].getElementsByTagName('h3')[0].innerText = jsonData['clothes_items'][key]['name']
+            divs[i].getElementsByTagName('p')[0].innerText = jsonData['clothes_items'][key]['price']
+            divs[i].getElementsByTagName('p')[1].innerText = jsonData['clothes_items'][key]['desc']
+            divs[i].getElementsByTagName('p')[2].innerText = jsonData['clothes_items'][key]['quantity']
+        } 
+    </script>
     <script src="../static/script/script.js"></script>
 
 </body>
