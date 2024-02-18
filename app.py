@@ -5,7 +5,9 @@ from DataBase import *
 
 app = Flask(__name__)
 
-purchase_history = []
+with open('database.json', 'r') as file:
+    data = json.load(file)
+order_details = data['ProcessedData']['order_details']
 
 def calculate_total_price(cart):
     return sum(item['price'] * item['quantity'] for item in cart)
@@ -40,7 +42,7 @@ def checkout():
 
 @app.route("/purchasehistory/")
 def history():
-    return render_template("purchasehistory.html")
+    return render_template("purchasehistory.html", order_details=order_details)
 
 @app.route("/budget/")
 def budget():
@@ -92,7 +94,6 @@ def setcookie2():
     resp = make_response(render_template('login.html', name="incorect username or password"))
     return resp
 
-   
 
 if __name__ == '__main__':
 	app.run(debug=True)
