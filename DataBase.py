@@ -1,15 +1,15 @@
 import json
 import socket
+import base64
 
 
-def read():
+def dread():
         with open('database.json','r') as outfile:
                 data = json.load(outfile)
         
         return data
         
-def register(username,password,budget) : 
-
+def dregister(username,password,budget) : 
 
         with open('database.json','r') as outfile:
                 data = json.load(outfile)
@@ -38,7 +38,7 @@ def register(username,password,budget) :
                 newData = [
                 {    
                                 "userid" : i,
-                                "sessionip" : 0,
+                                "sessioncookie" : 0,
                                 "budget" : int(budget),
                                 "cart_items": []
 
@@ -55,7 +55,7 @@ def register(username,password,budget) :
         else :
                 return False #username already taken
         
-def login(username,password):
+def dlogin(username,password):
 
 
         with open('database.json','r') as outfile:
@@ -73,12 +73,11 @@ def login(username,password):
                 
 
         if (RealUser==True):
-                hostname = socket.gethostname()
-                ip_address = socket.gethostbyname(hostname)
+                cookie = encookie(username,password)
                 sid=data["StaticData"]["user_table"][uid]["sessionid"]
                      
-
-                data["SessionData"]["shopping_session"][sid]["sessionip"] = ip_address
+                print(cookie)
+                data["SessionData"]["shopping_session"][sid]["sessioncookie"] = cookie
 
 
                 json_object = json.dumps(data, indent=4)
@@ -89,43 +88,45 @@ def login(username,password):
         else  :
                 return False #incorect username or password
 
-def cart (item,amount,section):
+def dcart (item,amount,section,username,password):
         with open('database.json','r') as outfile:
                 data = json.load(outfile)  
-        hostname = socket.gethostname()
-        ip_address = socket.gethostbyname(hostname)
+        cookie = encookie(username,password)
 
         x = len(data["SessionData"]["shopping_session"])
         while(x>0):
                 x-=1
-                if data["SessionData"]["shopping_session"][x]["sessionip"] == ip_address:
+                if data["SessionData"]["shopping_session"][x]["sessioncookie"] == cookie:
                         session = x
 
-        price = "%.2f" % (data["StaticData"]["product_table"][section][int(item)]["price"]*int(amount))
-        budget = data["SessionData"]["shopping_session"][session]["budget"]
+        if (x!=0):
+                price = "%.2f" % (data["StaticData"]["product_table"][section][int(item)]["price"]*int(amount))
+                budget = data["SessionData"]["shopping_session"][session]["budget"]
 
-        if (budget>float(price)):
-                name = data["StaticData"]["product_table"][section][int(item)]["name"]
-                newItem = {
-                     "item" : name,
-                     "amount" : amount,
-                     "price" : price
-                }
+                if (budget>float(price)):
+                        name = data["StaticData"]["product_table"][section][int(item)]["name"]
+                        newItem = {
+                        "item" : name,
+                        "amount" : amount,
+                        "price" : price
+                        }
 
-                budget-=float(price)
-                data["SessionData"]["shopping_session"][session]["cart_items"]+= newItem
-                data["SessionData"]["shopping_session"][session]["budget"] =budget
+                        budget-=float(price)
+                        data["SessionData"]["shopping_session"][session]["cart_items"]+= newItem
+                        data["SessionData"]["shopping_session"][session]["budget"] =budget
 
-                json_object = json.dumps(data, indent=4)
+                        json_object = json.dumps(data, indent=4)
 
-                with open("database.json", "w") as outfile:
-                        outfile.write(json_object)
-                return True #item added
-        else :
-                return False #out of budget
+                        with open("database.json", "w") as outfile:
+                                outfile.write(json_object)
+                        return "item added"
+                else :
+                        return "out of budget"
+        else:
+                return "Please relogin"
 
                         
-def buy (payment):
+def dbuy (payment):
         with open('database.json','r') as outfile:
                 data = json.load(outfile)  
         hostname = socket.gethostname()
@@ -169,5 +170,10 @@ def buy (payment):
         else :
                 return False #order failed       
 
+def encookie(user, password):
+        s=user+" "+password
+        return str(s)
 
-
+def decookie(cookie):
+        info = cookie.split()
+        return info
