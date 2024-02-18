@@ -93,7 +93,18 @@
     },
     "SessionData": {
         "shopping_session": [
-            {}
+            {
+                "name": "Calculator",
+                "price": 19.99,
+                "quantity": 1,
+                "desc": "this is a calculator"
+            },
+            {
+                "name": "Pens",
+                "price": 7.99,
+                "quantity": 1,
+                "desc": "these are pens"
+            }
         ]
     },
     "ProcessedData": {

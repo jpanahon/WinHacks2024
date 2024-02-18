@@ -7,9 +7,10 @@ app = Flask(__name__)
 with open('database.json', 'r') as file:
     data = json.load(file)
 order_details = data['ProcessedData']['order_details']
+shopping_cart = data['SessionData']['shopping_session']
 
 def calculate_total_price(cart):
-    return sum(item['price'] * item['quantity'] for item in cart)
+    return sum(shopping_cart['price'] * shopping_cart['quantity'] for shopping in cart)
 
 @app.route("/")
 def index():
@@ -47,7 +48,7 @@ def checkout():
     with open('./items.json') as f:
         data = json.load(f)
 
-    return render_template("checkout.html", items=data)
+    return render_template("checkout.html", shopping_items=shopping_cart)
 
 # @app.route("/pay/")
 # def pay():
