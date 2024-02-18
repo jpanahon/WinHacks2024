@@ -29,17 +29,47 @@ $(document).ready(() => {
         });
     });
 
+    $('.devices-link').click((e) => {
+        e.preventDefault();
+        $.ajax({
+            url: '/filtered/',
+            type: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify({ filtered: dataJSON["electronic_items"] }),
+            success: function(response) {
+                updateHTML(response)
+            }
+        });
+    });
+
+    $('.clothes-link').click((e) => {
+        e.preventDefault();
+        $.ajax({
+            url: '/filtered/',
+            type: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify({ filtered: dataJSON["clothes_items"] }),
+            success: function(response) {
+                updateHTML(response)
+            }
+        });
+    });
+
     function updateHTML(data) {
         // Implement your logic to update the HTML content
         // For example, you might update a specific element with the filtered data
-        var divs = document.getElementsByClassName('items-desc')
+        const divs = document.getElementsByClassName('items-desc')
+
         for (let i = 0; i < 3; i++) {
             let key = 'item' + (i+1)
-            console.log(data['items'][key])
             divs[i].getElementsByTagName('h3')[0].innerText = data['items'][key]['name']
             divs[i].getElementsByTagName('p')[0].innerText = data['items'][key]['price']
             divs[i].getElementsByTagName('p')[1].innerText = data['items'][key]['desc']
             divs[i].getElementsByTagName('p')[2].innerText = data['items'][key]['quantity']
+        }
+
+        for (let i = 3; i < 9; i++) {
+            divs[i].style.display = 'none'
         }
     }
 });
