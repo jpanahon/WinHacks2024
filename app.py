@@ -92,7 +92,12 @@ def setcookie2():
     resp = make_response(render_template('login.html', name="incorect username or password"))
     return resp
 
-   
+@app.route('/getcookie')
+def getcookie():
+   cookie = request.cookies.get('userCookie')
+   info = decookie(cookie)
+
+   return make_response(render_template('readcookie.html', name=info[0]))   
 
 if __name__ == '__main__':
 	app.run(debug=True)
