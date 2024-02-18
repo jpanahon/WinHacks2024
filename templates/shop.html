@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="{{url_for('static',filename='css/output.css')}}" rel="stylesheet">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <title>Shop Items</title>
 </head>
@@ -12,6 +13,13 @@
 <body>
     {% set items_dict = items|tojson|safe %}
     {% include './components/navbar.html' %}
+
+    <div class="w3-sidebar w3-bar-block w3-border-right" style="display:none" id="mySidebar">
+        <button onclick="w3_close()" class="w3-bar-item w3-large">Close &times;</button>
+        <li class="w3-bar-item">Expenses: $4.99</li>
+        <li class="w3-bar-item">Your Budget: $0.00</li>
+    </div>
+    <button class="w3-button w3-blue w3-xlarge" onclick="w3_open()">☰</button>
     <nav class="shop-nav">
         <ul>
             <li><a class="groceries-link" href="">Groceries</a></li>
@@ -111,25 +119,25 @@
     </div>
     <div id="python-data" style="display: none;">{{ items|tojson|safe }}</div>
     <script>
-        var pythonData = JSON.parse(document.getElementById('python-data').textContent) 
-        const jsonData = JSON.parse(pythonData)   
+        var pythonData = JSON.parse(document.getElementById('python-data').textContent)
+        const jsonData = JSON.parse(pythonData)
         const divs = document.getElementsByClassName('items-desc')
         for (let i = 0; i < 3; i++) {
-            let key = 'item' + (i+1)
+            let key = 'item' + (i + 1)
             divs[i].getElementsByTagName('h3')[0].innerText = jsonData['grocery_items'][key]['name']
             divs[i].getElementsByTagName('p')[0].innerText = jsonData['grocery_items'][key]['price']
             divs[i].getElementsByTagName('p')[1].innerText = jsonData['grocery_items'][key]['desc']
             divs[i].getElementsByTagName('p')[2].innerText = jsonData['grocery_items'][key]['quantity']
-        } 
+        }
         for (let i = 3; i < 6; i++) {
-            let key = 'item' + ((i-3)+1)
+            let key = 'item' + ((i - 3) + 1)
             divs[i].getElementsByTagName('h3')[0].innerText = jsonData['electronic_items'][key]['name']
             divs[i].getElementsByTagName('p')[0].innerText = jsonData['electronic_items'][key]['price']
             divs[i].getElementsByTagName('p')[1].innerText = jsonData['electronic_items'][key]['desc']
             divs[i].getElementsByTagName('p')[2].innerText = jsonData['electronic_items'][key]['quantity']
-        } 
+        }
         for (let i = 6; i < 9; i++) {
-            let key = 'item' + ((i-6)+1)
+            let key = 'item' + ((i - 6) + 1)
             divs[i].getElementsByTagName('h3')[0].innerText = jsonData['clothes_items'][key]['name']
             divs[i].getElementsByTagName('p')[0].innerText = jsonData['clothes_items'][key]['price']
             divs[i].getElementsByTagName('p')[1].innerText = jsonData['clothes_items'][key]['desc']
@@ -137,7 +145,16 @@
         } 
     </script>
     <script src="../static/script/script.js"></script>
+    <script>
+        function w3_open() {
+            document.getElementById("mySidebar").style.display = "block";
+        }
 
+        function w3_close() {
+            document.getElementById("mySidebar").style.display = "none";
+        }
+    </script>
+    {% include './components/footer.html' %}
 </body>
 
 </html>
