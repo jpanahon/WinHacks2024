@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <title>Shop Items</title>
 </head>
+
 <body>
     {% set items_dict = items|tojson|safe %}
     {% include './components/navbar.html' %}
@@ -14,8 +16,8 @@
         <ul>
             <li><a class="groceries-link" href="">Groceries</a></li>
             <li><a class="school-link" href="">School supplies</a></li>
-            <li><a class="devices-link"  href="">Electronic devices</a></li>
-            <li><a class="clothes-link"  href="">Clothes</a></li>
+            <li><a class="devices-link" href="">Electronic devices</a></li>
+            <li><a class="clothes-link" href="">Clothes</a></li>
         </ul>
     </nav>
     <div class="items-list">
@@ -137,4 +139,5 @@
     <script src="../static/script/script.js"></script>
 
 </body>
+
 </html>
